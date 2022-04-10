@@ -24,7 +24,7 @@
 				<input type="text" name="name" id="name" placeholder="Your name" />
 				<input type="email" name="email" id="email" placeholder="Email Address" />
 				<input type="phone" name="phone" id="phone" placeholder="Your phone" />
-				<input type="submit" value="Register on events" />
+				<input id="submit-form" type="submit" value="Register on events" />
 			</form>
 
 		<!-- Footer -->
@@ -42,6 +42,21 @@
 
 		<!-- Scripts -->
 			<script src="assets/js/main.js"></script>
+<script>
+	var $form = $('form#signup-form'),
+    url = 'https://script.google.com/macros/s/abcdefghijklmnopqrstuvwxyz1234567890/exec'
 
+$('#submit-form').on('click', function(e) {
+  e.preventDefault();
+  var jqxhr = $.ajax({
+    url: url,
+    method: "GET",
+    dataType: "json",
+    data: $form.serializeObject()
+  }).success(
+    // do something
+  );
+})
+</script>
 	</body>
 </html>

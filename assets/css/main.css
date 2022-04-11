@@ -476,20 +476,20 @@ form {
       font-weight: 900; }
     form .message:before {
       margin-right: 0.5em; }
-    form .message.visible {
-      -moz-transform: scale(1);
-      -webkit-transform: scale(1);
-      -ms-transform: scale(1);
-      transform: scale(1);
-      opacity: 1; }
-    form .message.success {
+    
+    .message.success {
+      display: none;
       color: #1cb495; }
-      form .message.success:before {
-        content: '\f00c'; }
-    form .message.failure {
+    .message.failure {
       color: #ff2361; }
-      form .message.failure:before {
-        content: '\f119'; }
+        .message.visible {
+          display: block;
+          -moz-transform: scale(1);
+          -webkit-transform: scale(1);
+          -ms-transform: scale(1);
+          transform: scale(1);
+          opacity: 1;
+        }
 
 label {
   color: #fff;

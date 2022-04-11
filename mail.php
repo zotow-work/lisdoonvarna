@@ -1,21 +1,21 @@
 <?php
-//Initialize cURL.
-$ch = curl_init();
+$name = trim($_POST["name"]);
+$email = trim($_POST["email"]);
+$phone = trim($_POST["phone"]);
+$quantity = trim($_POST["quantity"]);
+$token = "5123131821:AAEza_RcUSbGMGUYKE0E7sMy5t_E2aTkfmc";
+// Chat ID find https://api.telegram.org/botXXXXXXXXXXXXXXXXXXXXXXX/getUpdates where XXXXXXXXXXXXXXXXXXXXXXX is our token
+$chat_id = "114178983";
+$arr = array(
+    'Name:' => $name,
+    'Mail:' => $email,
+    'Phone:' => $phone,
+    'Quantity:' => $quantity
 
-//Set the URL that you want to GET by using the CURLOPT_URL option.
-curl_setopt($ch, CURLOPT_URL, 'https://script.google.com/macros/s/AKfycby3muActGOl7-S8cRgxkg9s_frPDcKsxKKlszi302R0HQjqUvWpMfT2CqSCGs-SYpIp/exec');
+);
 
-//Set CURLOPT_RETURNTRANSFER so that the content is returned as a variable.
-// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-//Set CURLOPT_FOLLOWLOCATION to true to follow redirects.
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-
-//Execute the request.
-$data = curl_exec($ch);
-
-//Close the cURL handle.
-curl_close($ch);
-
-//Print the data out onto the page.
-echo $data;
+foreach ($arr as $key => $value) {
+    $txt .= "<b>" . $key . "</b> " . $value . "%0A";
+};
+$sendToTelegram = fopen("https://api.telegram.org/bot{$token}/sendMessage?chat_id={$chat_id}&parse_mode=html&text={$txt}", "r");
+header('Location: http://ukranianfest.zotow.work/?result=succsess');

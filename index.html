@@ -20,10 +20,19 @@
 			</header>
 
 		<!-- Signup Form -->
-			<form id="signup-form" method="post" action="#">
-				<input type="text" name="name" id="name" placeholder="Your name" />
-				<input type="email" name="email" id="email" placeholder="Email Address" />
-				<input type="phone" name="phone" id="phone" placeholder="Your phone" />
+						<span id="message" class="message success">Thank you!</span>
+
+			<form  id="signup-form" method="POST" action="mail.php">
+				<input required="required" type="text" name="name" id="name" placeholder="Your name" />
+				<input required="required" type="email" name="email" id="email" placeholder="Email Address" />
+				<input required="required" type="phone" name="phone" id="phone" placeholder="Your phone" />
+				<select id="cars" name="quantity">
+  <option value="1">Only me</option>
+  <option value="2">+1</option>
+  <option value="3">+2</option>
+  <option value="4">+3</option>
+  <option value="5">+4</option>
+</select>
 				<input id="submit-form" type="submit" value="Register on events" />
 			</form>
 
@@ -42,21 +51,7 @@
 
 		<!-- Scripts -->
 			<script src="assets/js/main.js"></script>
-<script>
-	var $form = $('form#signup-form'),
-    url = 'https://script.google.com/macros/s/abcdefghijklmnopqrstuvwxyz1234567890/exec'
 
-$('#submit-form').on('click', function(e) {
-  e.preventDefault();
-  var jqxhr = $.ajax({
-    url: url,
-    method: "GET",
-    dataType: "json",
-    data: $form.serializeObject()
-  }).success(
-    // do something
-  );
-})
-</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	</body>
 </html>

@@ -3,9 +3,9 @@ $name = trim($_POST["name"]);
 $email = trim($_POST["email"]);
 $phone = trim($_POST["phone"]);
 $quantity = trim($_POST["quantity"]);
-$token = "5123131821:AAEza_RcUSbGMGUYKE0E7sMy5t_E2aTkfmc";
+$token = "put_token_here";
 // Chat ID find https://api.telegram.org/botXXXXXXXXXXXXXXXXXXXXXXX/getUpdates where XXXXXXXXXXXXXXXXXXXXXXX is our token
-$chat_id = "114178983";
+$chat_id = "put_chat_id";
 $arr = array(
     'Name:' => $name,
     'Mail:' => $email,
